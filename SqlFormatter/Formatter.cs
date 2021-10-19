@@ -6,15 +6,14 @@ namespace SqlFormatter.Tests
     {
         public string Format(string sql)
         {
-            var formattedChange = false;
+            bool formattedChange;
             do
             {
                 formattedChange = false;
                 var visitor = new MyVisitor(sql);
                 var parser = new TSql150Parser(false);
-                IList<ParseError> errors;
                 using var input = new StringReader(sql);
-                var parsedQuery = parser.Parse(input, out errors);
+                var parsedQuery = parser.Parse(input, out IList<ParseError> errors);
 
                 if (errors.Count == 0) parsedQuery.Accept(visitor);
 
