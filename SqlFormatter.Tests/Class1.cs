@@ -3,20 +3,6 @@ using NUnit.Framework;
 
 namespace SqlFormatter.Tests;
 
-public class Formatter2
-{
-    public Formatter2()
-    {
-
-    }
-
-    public string Format(string input) =>
-@"CREATE TABLE [dbo].[SqlTable]
-(
-	[Id] INT NOT NULL PRIMARY KEY
-);";
-}
-
 public class Class1
 {
     [Test]
